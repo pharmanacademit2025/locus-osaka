@@ -10,28 +10,32 @@
             --text-dark: #1a1a1a; --bg-light: #f4f7f9;
         }
         * { box-sizing: border-box; }
-        body { font-family: -apple-system, sans-serif; color: var(--text-dark); background: var(--bg-light); margin: 0; line-height: 1.5; }
-        header { background: linear-gradient(135deg, var(--primary), #003366); color: white; padding: 30px 20px; text-align: center; }
+        body { font-family: -apple-system, sans-serif; color: var(--text-dark); background: var(--bg-light); margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary), #003366); color: white; padding: 25px 20px; text-align: center; }
         .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 15px; }
         
-        .authority-card { 
-            background: white; padding: 25px; border-radius: 12px; margin-top: -20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 4px solid var(--accent);
-        }
-        .authority-title { color: var(--accent); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; }
-        .bio-text { font-size: 0.9rem; margin-bottom: 15px; }
-        .lab-box { background: #fffcf0; padding: 15px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #f1e4b8; }
+        /* 上段：システム説明 */
+        .intro-card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid var(--primary); }
+        .intro-card p { margin: 0; font-size: 0.95rem; color: #444; }
 
-        .search-box { background: var(--primary); color: white; padding: 25px; border-radius: 12px; margin: 25px 0; text-align: center; }
+        /* 検索窓 */
+        .search-box { background: var(--primary); color: white; padding: 25px; border-radius: 12px; margin-bottom: 25px; text-align: center; }
         input[type="tel"] { width: 100%; padding: 15px; border-radius: 8px; border: none; font-size: 1.1rem; text-align: center; margin-bottom: 15px; }
-        button { width: 100%; padding: 15px; background: var(--accent); color: var(--primary); border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; }
+        button { width: 100%; padding: 15px; background: var(--accent); color: var(--primary); border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; }
 
-        #result { display:none; }
-        .important-note { background: #eef2f7; border-left: 4px solid #3498db; padding: 15px; font-size: 0.85rem; margin-bottom: 20px; border-radius: 4px; }
+        #result { display:none; margin-bottom: 30px; }
+        .important-note { background: #eef2f7; border-left: 4px solid #3498db; padding: 15px; font-size: 0.85rem; margin-bottom: 15px; border-radius: 4px; }
         .risk-card { background: white; border-radius: 10px; padding: 18px; margin-bottom: 12px; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .risk-card.high { border-left-color: var(--danger); }
         .risk-tag { font-weight: bold; color: var(--primary); font-size: 0.9rem; display: block; margin-bottom: 5px; }
-        .risk-desc { font-size: 0.85rem; color: #444; margin: 0; }
+
+        /* 下段：プロフィール（権威性） */
+        .authority-card { 
+            background: #fff; padding: 25px; border-radius: 12px; border-top: 4px solid var(--accent);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-top: 40px;
+        }
+        .authority-title { color: var(--accent); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+        .lab-box { background: #fffcf0; padding: 15px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #f1e4b8; margin-top: 15px; }
         
         footer { font-size: 0.75rem; color: #888; text-align: center; padding: 40px 10px; }
     </style>
@@ -43,49 +47,58 @@
 </header>
 
 <div class="container">
-    <div class="authority-card">
-        <span class="authority-title">代表：Pharman Academit 薬剤師</span>
-        <div class="bio-text">
-            <strong>大阪大学大学院 医学系研究科 吉森研究室出身</strong><br>
-            2022年日本薬剤師会学術大会（仙台）、2023年アジア薬剤師会連盟(FAPA)台湾大会にて、ポスター発表を実施。<br><br>
-            EBM (Evidence Based Medicine：科学的根拠に基づく医療) と NBM (Narrative Based Medicine：対話と物語に基づく医療) を臨床現場で統合し、データに基づいた地域介入の最適化を提唱する。
-        </div>
-        
-        <div class="lab-box">
-            <strong>【学術的背景】</strong><br>
-            オートファジー研究の世界的第一人者である吉森保教授の門下生として、科学的探究心と厳密なデータ解析手法を習得。その知見を地域医療の「歪み」の可視化へと応用。
-        </div>
+    <div class="intro-card">
+        <p>
+            郵便番号から、その地域の人口動態と処方傾向を解析し、薬剤師が現場で警戒すべき臨床リスクを可視化します。
+        </p>
     </div>
 
     <div class="search-box">
         <input type="tel" id="zipInput" placeholder="郵便番号7桁 (5580003)" maxlength="7">
-        <button onclick="runAnalysis()">地域分析を実行</button>
+        <button onclick="runAnalysis()">地域課題を分析する</button>
     </div>
 
     <div id="result">
         <h2 id="resArea" style="font-size: 1.1rem; text-align: center; color: var(--primary); margin-bottom: 15px;"></h2>
         
         <div class="important-note">
-            <strong>【専門家への注釈】</strong><br>
+            <strong>【注釈】</strong><br>
             本システムは地域統計上のリスクを可視化するものです。個別の症例における真のリスク評価は、現場薬剤師によるNBM（対話）を通じてのみ完成します。
         </div>
 
         <div class="risk-card high">
             <span class="risk-tag">⚠️ 潜在的転倒連鎖リスク [BZD × 刺激性下剤]</span>
-            <p class="risk-desc" id="resFall"></p>
+            <p id="resFall" class="risk-desc" style="font-size:0.85rem; margin:0; color:#444;"></p>
         </div>
 
         <div class="risk-card">
             <span class="risk-tag">💰 医療資源の歪み [生活保護 × 多剤併用]</span>
-            <p class="risk-desc" id="resEconomy"></p>
+            <p id="resEconomy" class="risk-desc" style="font-size:0.85rem; margin:0; color:#444;"></p>
         </div>
 
         <div class="risk-card">
             <span class="risk-tag">💊 地域耐性菌リスク [高齢密集 × 広域抗生剤]</span>
-            <p class="risk-desc" id="resAMR"></p>
+            <p id="resAMR" class="risk-desc" style="font-size:0.85rem; margin:0; color:#444;"></p>
         </div>
     </div>
+
+    <hr style="border:0; border-top:1px solid #ddd; margin: 40px 0;">
+
+<div class="authority-card">
+    <span class="authority-title">開発代表：Pharman Academit 薬剤師</span>
+    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+        2022年日本薬剤師会学術大会（仙台）、2023年アジア薬剤師会連盟(FAPA)台湾大会にてポスター発表を実施。<br><br>
+        EBM (Evidence Based Medicine：科学的根拠に基づく医療) と NBM (Narrative Based Medicine：対話と物語に基づく医療) を臨床現場で統合し、データに基づいた地域介入の最適化を提唱。
+    </p>
+    
+    <div class="lab-box">
+        <strong>【科学的思考の継承】</strong><br>
+        2016年ノーベル生理学・医学賞の対象となった「オートファジー」研究。その**世界的権威である吉森保教授（大阪大学）**の門下生として、科学的思考の基礎を学ぶ。
+        <br><br>
+        「思い込みや希望的観測を排し、客観的なデータのみを信じる」という、世界トップレベルの研究環境で培われた『科学的な誠実さ』を基盤に、地域医療の課題を精密に可視化します。
+    </div>
 </div>
+
 
 <footer>
     &copy; 2025 Pharman Academit / OSAKA Locus-Intelligence<br>
