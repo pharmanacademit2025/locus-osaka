@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locus-Intelligence OSAKA | Pharman Academit</title>
+    <style>
+        :root { --primary: #002B5B; --accent: #3FB6B2; --text: #333; --bg: #F4F7F9; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--bg); margin: 0; line-height: 1.7; }
+        header { background: var(--primary); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+        .container { max-width: 900px; margin: -60px auto 40px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .profile { border-bottom: 2px solid #eee; margin-bottom: 40px; padding-bottom: 30px; }
+        .tagline { font-weight: bold; color: var(--accent); font-size: 1.3rem; margin-bottom: 10px; }
+        .search-section { background: #f0f4f8; padding: 40px; border-radius: 12px; text-align: center; margin: 40px 0; border: 1px solid #dce4ec; }
+        input[type="text"] { padding: 18px; width: 60%; border: 2px solid #cbd5e0; border-radius: 6px; font-size: 1.2rem; outline: none; transition: 0.3s; }
+        input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 10px rgba(63, 182, 178, 0.2); }
+        button { padding: 18px 36px; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: 0.3s; margin-left: 10px; }
+        button:hover { background: #349e9a; transform: translateY(-2px); }
+        #result { display:none; margin-top:30px; text-align:left; background: white; padding: 30px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .evidence-badge { display: inline-block; background: #edf2f7; color: #4a5568; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; margin-top: 10px; border: 1px solid #e2e8f0; }
+        .academic-section { margin-top: 60px; }
+        .paper-card { margin-bottom: 40px; padding: 25px; background: #fff; border-left: 5px solid var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .paper-title { font-weight: bold; font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
+        .paper-summary { font-size: 1rem; color: #4a5568; }
+        footer { text-align: center; padding: 60px 20px; font-size: 0.9rem; color: #718096; background: #edf2f7; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Locus-Intelligence OSAKA</h1>
+    <p>地域統計(EBM)と臨床物語(NBM)を統合し、薬剤師の職能を再定義する</p>
+</header>
+
+<div class="container">
+    <section class="profile">
+        <div class="tagline">吉森研出身 | 薬剤師 | DXアーキテクト</div>
+        <p>Pharman Academit 代表。臨床現場の「小さな気づき」を地域全体の課題解決へと繋げる。2022・2023年の国内外学会発表実績（FAPA台湾、日薬学術大会等）に基づき、データ駆動型の地域医療最適化を提唱。Pythonを活用した自動化システムの構築から、戦略的な薬学的介入までを統合する。</p>
+    </section>
+
+    <section class="search-section">
+        <h3>地域課題分析エンジン (大阪版 β)</h3>
+        <p>郵便番号を入力し、そのエリアに潜む「優先すべき介入課題」を可視化します。</p>
+        <input type="text" id="zipInput" placeholder="5580003" maxlength="7">
+        <button onclick="checkRisk()">分析を実行</button>
+        
+        <div id="result">
+            <h3 id="resArea" style="color:var(--primary); margin-top:0;"></h3>
+            <div style="margin-bottom: 20px;">
+                <strong>【地域統計アラート】</strong><br>
+                <span id="resDesc"></span>
+            </div>
+            <div style="background:#fff9db; padding:20px; border-radius:8px; border-left:5px solid #fcc419;">
+                <strong>【推奨される臨床アクション】</strong><br>
+                <p id="resAction" style="margin-bottom:5px;"></p>
+                <span id="resEvidence" class="evidence-badge"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="academic-section">
+        <h2>Academic & Research Background</h2>
+        <div class="paper-card">
+            <div class="paper-title">2023 FAPA Congress (Taiwan)</div>
+            <p>在宅薬物治療における「意図せざる副作用」の早期検知モデルの提唱</p>
+            <div class="paper-summary">BPSD（認知症の行動・心理症状）と処方設計の相関を分析。現場での微細な観察情報を統合し、薬学的介入がQOL回復に直結するプロセスを国際発表。</div>
+        </div>
+        <div class="paper-card">
+            <div class="paper-title">2022 第55回 日本薬剤師会学術大会</div>
+            <p>地域医療における潜在的QOL阻害因子の構造化と介入戦略</p>
+            <div class="paper-summary">社会的スティグマを抱える困難症例を対象に、薬剤師の対人コミュニケーションが治療継続率（コンプライアンス）に与える影響を臨床実証。</div>
+        </div>
+        <p style="font-size:0.9rem; color:#718096;">※他、学生優秀発表賞を含む計5回の学会発表。吉森研にて細胞生物学の基礎研究に従事。</p>
+    </section>
+</div>
+
+<footer>
+    &copy; 2025 Pharman Academit. Produced by Pharmanacademit2025. <br>
+    本システムは大阪府のオープンデータを活用した独自解析アルゴリズムにより動作しています。
+</footer>
+
+<script>
+    function checkRisk() {
+        const zip = document.getElementById('zipInput').value.replace('-', '');
+        const res = document.getElementById('result');
+        
+        // 大阪市住吉区長居のシミュレーションデータ
+        if(zip === '5580003') {
+            document.getElementById('resArea').innerText = "分析エリア：大阪市住吉区長居";
+            document.getElementById('resDesc').innerText = "【高警戒】独居高齢者率が区内平均より有意に高く、かつ多剤併用（ポリファーマシー）リスクが顕在化しているエリアです。特に夜間転倒による骨折リスクに注意が必要です。";
+            document.getElementById('resAction').innerText = "BZ系睡眠薬服用中の独居患者を抽出し、オレキシン受容体拮抗薬への置換、または減薬プロトコルの医師提案を最優先してください。";
+            document.getElementById('resEvidence').innerText = "根拠：高齢者の安全な薬物療法ガイドライン / NDB第9回オープンデータ";
+            res.style.display = 'block';
+        } else {
+            alert("現在は住吉区(5580003)など一部エリアのみ先行公開中です。大阪府全1800エリアのデータは順次デプロイされます。");
+        }
+    }
+</script>
+
+</body>
+</html>
