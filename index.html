@@ -7,95 +7,23 @@
     <style>
         :root { 
             --primary: #001f3f; 
-            --accent: #d4af37; /* ゴールド：権威性の象徴 */
+            --accent: #d4af37; 
             --text-dark: #1a1a1a; 
             --text-light: #4a4a4a;
             --bg-soft: #f8f9fa; 
         }
-        body { 
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; 
-            color: var(--text-dark); 
-            background: #ffffff; 
-            margin: 0; 
-            line-height: 1.8; 
-        }
-        header { 
-            background: linear-gradient(135deg, var(--primary) 0%, #003366 100%); 
-            color: white; 
-            padding: 100px 20px; 
-            text-align: center; 
-        }
-        .container { 
-            max-width: 900px; 
-            margin: -80px auto 60px; 
-            background: white; 
-            padding: 50px; 
-            border-radius: 15px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-        }
-        .profile { border-bottom: 2px solid #eee; margin-bottom: 40px; padding-bottom: 30px; }
-        .tagline { 
-            font-weight: bold; 
-            color: var(--accent); 
-            font-size: 1.4rem; 
-            letter-spacing: 0.1em;
-            margin-bottom: 15px; 
-        }
-        .bio { font-size: 1.1rem; color: var(--text-light); }
-        
-        /* 吉森研の権威性セクション */
-        .authority-box {
-            background: var(--bg-soft);
-            border-left: 6px solid var(--accent);
-            padding: 25px;
-            margin: 30px 0;
-            font-size: 1rem;
-        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; color: var(--text-dark); background: #ffffff; margin: 0; line-height: 1.8; }
+        header { background: linear-gradient(135deg, var(--primary) 0%, #003366 100%); color: white; padding: 80px 20px; text-align: center; }
+        .container { max-width: 900px; margin: -60px auto 60px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .tagline { font-weight: bold; color: var(--accent); font-size: 1.4rem; letter-spacing: 0.1em; margin-bottom: 15px; }
+        .authority-box { background: var(--bg-soft); border-left: 6px solid var(--accent); padding: 25px; margin: 30px 0; }
         .authority-title { font-weight: bold; color: var(--primary); margin-bottom: 10px; display: block; }
-
-        .search-section { 
-            background: var(--primary); 
-            color: white;
-            padding: 50px; 
-            border-radius: 12px; 
-            text-align: center; 
-            margin: 50px 0; 
-        }
-        .search-section h3 { font-size: 1.8rem; margin-bottom: 20px; }
-        input[type="text"] { 
-            padding: 18px; 
-            width: 50%; 
-            border: none; 
-            border-radius: 6px; 
-            font-size: 1.3rem; 
-            margin-bottom: 10px;
-        }
-        button { 
-            padding: 18px 40px; 
-            background: var(--accent); 
-            color: var(--primary); 
-            border: none; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 1.2rem; 
-            font-weight: bold; 
-            transition: 0.3s; 
-        }
-        button:hover { background: #fff; transform: scale(1.05); }
-
-        #result { 
-            display:none; margin-top:30px; text-align:left; background: white; 
-            padding: 30px; border-radius: 8px; color: var(--text-dark);
-        }
-        
-        .academic-section h2 { 
-            border-bottom: 3px solid var(--primary); 
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-        .paper-card { margin-bottom: 40px; padding: 25px; border: 1px solid #eee; border-radius: 8px; }
-        .paper-title { font-weight: bold; font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
-        
+        .search-section { background: var(--primary); color: white; padding: 50px; border-radius: 12px; text-align: center; margin: 50px 0; }
+        input[type="text"] { padding: 18px; width: 50%; border: none; border-radius: 6px; font-size: 1.3rem; margin-bottom: 10px; }
+        button { padding: 18px 40px; background: var(--accent); color: var(--primary); border: none; border-radius: 6px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: 0.3s; }
+        #result { display:none; margin-top:30px; text-align:left; background: white; padding: 30px; border-radius: 8px; color: var(--text-dark); }
+        .action-box { background:#fff9db; padding:25px; border-radius:8px; border-left:8px solid var(--accent); }
+        .evidence-link { color: #0066cc; text-decoration: underline; font-size: 0.85rem; cursor: pointer; }
         footer { text-align: center; padding: 60px; background: var(--bg-soft); color: #777; font-size: 0.9rem; }
     </style>
 </head>
@@ -103,7 +31,7 @@
 
 <header>
     <h1>Locus-Intelligence OSAKA</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9;">データサイエンス × 臨床倫理 | 大阪の地域医療を再定義する</p>
+    <p style="font-size: 1.1rem; opacity: 0.9;">科学的根拠(EBM)と物語的対話(NBM)を、地域の処方箋へ統合する</p>
 </header>
 
 <div class="container">
@@ -111,43 +39,52 @@
         <div class="tagline">Pharman Academit 代表</div>
         <div class="bio">
             <strong>吉森研出身 | 薬剤師 | DXアーキテクト</strong><br>
-            2022・2023年 国内外学会発表（仙台・台湾）。臨床現場の「物語（NBM）」を「科学（EBM）」へと翻訳し、地域医療の構造的課題を可視化。Python/APIを用いた薬局DXの実装実績を基に、次世代の薬剤師職能を提唱する。
+            2022年日本薬剤師会学術大会（仙台）、2023年アジア薬剤師会連盟(FAPA)台湾大会にて登壇。
+            臨床現場で培った「物語（NBM：Narrative Based Medicine）」と、統計・論文に基づく「科学（EBM：Evidence Based Medicine）」を両輪とし、片方に偏ることなく現場へ実装。
+            プログラミングを用いた「薬局業務の自動化・効率化」の知見を活かし、次世代の薬剤師職能を提唱する。
         </div>
 
         <div class="authority-box">
             <span class="authority-title">【学術的バックボーン：吉森研究室】</span>
-            当プロジェクトの根底には、<strong>オートファジー研究の世界的権威であり、ノーベル生理学・医学賞受賞に多大な貢献を果たした吉森保教授</strong>の門下で培った「論理的思考」と「科学的探究心」があります。基礎研究で養われた厳密なデータ分析手法を、地域医療の最適化へと応用しています。
+            当プロジェクトの根底には、<strong>オートファジー研究の世界的権威であり、ノーベル生理学・医学賞受賞（2016年）に多大な貢献を果たした吉森保教授</strong>の門下で培った厳密なデータ分析手法があります。基礎研究の論理と臨床の機微を融合させ、地域医療の最適化へと応用しています。
         </div>
     </section>
 
     <section class="search-section">
         <h3>地域課題分析エンジン (OSAKA β)</h3>
-        <p>郵便番号を入力し、そのエリアに潜む「優先すべき介入課題」を可視化します。</p>
+        <p>郵便番号を入力し、そのエリアの「優先すべき臨床課題」を可視化します。</p>
         <input type="text" id="zipInput" placeholder="5580003" maxlength="7">
         <button onclick="checkRisk()">分析を実行</button>
         
         <div id="result">
             <h3 id="resArea" style="color:var(--primary);"></h3>
             <p><strong>■ 地域統計アラート:</strong> <span id="resDesc"></span></p>
-            <div style="background:#fff9db; padding:25px; border-radius:8px; border-left:8px solid var(--accent);">
+            <div class="action-box">
                 <strong>■ 推奨される臨床アクション:</strong>
                 <p id="resAction" style="font-size: 1.1rem; margin-top:10px;"></p>
-                <small style="color:#666;">（根拠：高齢者の安全な薬物療法ガイドライン / NDBオープンデータ）</small>
+                
+                <div style="margin-top:15px; padding:10px; border:1px dashed #d4af37; font-size: 0.95rem;">
+                    <strong>【抽出のヒント：現場でどう動くか】</strong><br>
+                    <span id="resHint"></span>
+                </div>
+
+                <div style="margin-top:20px;">
+                    <small style="color:#666;"><strong>【信頼性担保：生データ・根拠へのリンク】</strong></small><br>
+                    <a id="linkEstat" href="#" target="_blank" class="evidence-link">・e-Stat(政府統計：独居高齢率)</a><br>
+                    <a id="linkNdb" href="#" target="_blank" class="evidence-link">・NDB(厚生労働省：地域別処方トレンド)</a><br>
+                    <a href="https://www.jpn-geriat-soc.or.jp/cp_guideline/q_and_a/safety_medication_elderly_index.html" target="_blank" class="evidence-link">・高齢者の安全な薬物療法ガイドライン</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="academic-section">
-        <h2>Academic Research</h2>
-        <div class="paper-card">
-            <div class="paper-title">2023 FAPA Congress (Taiwan)</div>
-            <p><strong>在宅薬物治療における「意図せざる副作用」の早期検知モデル</strong></p>
-            <p>認知症患者のBPSDと処方設計の相関を分析。微細な観察情報を統合し、薬学的介入がQOL回復に直結するプロセスを国際発表。</p>
-        </div>
-        <div class="paper-card">
-            <div class="paper-title">2022 第55回 日本薬剤師会学術大会</div>
-            <p><strong>地域医療における潜在的QOL阻害因子の構造化と介入戦略</strong></p>
-            <p>社会的スティグマを抱える困難症例に対し、薬剤師の対人スキルが治療継続率に与える影響を臨床実証。EBMとNBMの統合を提唱。</p>
+        <h2>Academic Research (実績)</h2>
+        <div style="border-left: 4px solid var(--primary); padding-left: 20px; margin-bottom: 30px;">
+            <p><strong>2023 FAPA Congress (Taiwan)</strong><br>
+            精神科領域における在宅医療での薬剤師の重要性。BPSDと処方設計の相関を分析し、QOL回復に直結するプロセスを提唱。</p>
+            <p><strong>2022 第55回 日本薬剤師会学術大会</strong><br>
+            社会的困難症例への介入戦略。EBMとNBMの統合により治療継続率を向上させた臨床実証を報告。</p>
         </div>
     </section>
 </div>
@@ -163,11 +100,17 @@
         const res = document.getElementById('result');
         if(zip === '5580003') {
             document.getElementById('resArea').innerText = "分析エリア：大阪市住吉区長居";
-            document.getElementById('resDesc').innerText = "独居高齢者率が有意に高く、かつ多剤併用（ポリファーマシー）リスクが顕在化しているエリア。夜間の転倒による救急搬送リスクを最大警戒すべき。";
+            document.getElementById('resDesc').innerText = "独居高齢率が有意に高く、かつ多剤併用リスクが顕在化。夜間の転倒による骨折・救急搬送の潜在的リスクが極めて高いエリアです。";
             document.getElementById('resAction').innerText = "BZ系睡眠薬服用中の独居高齢者を重点抽出し、オレキシン受容体拮抗薬への置換提案、または睡眠衛生指導の導入を検討してください。";
+            document.getElementById('resHint').innerText = "レセコンにて『75歳以上』×『ベンゾジアゼピン系薬剤常用』×『独居(住所等で推測)』の条件で一括抽出を行い、薬歴に「転倒注意・見守り」のタグ付けから開始してください。";
+            
+            // 生データへのリンク設定
+            document.getElementById('linkEstat').href = "https://www.e-stat.go.jp/dbview?sid=0003445100";
+            document.getElementById('linkNdb').href = "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/newpage_21060.html";
+            
             res.style.display = 'block';
         } else {
-            alert("現在はサンプルエリア(5580003)のみ先行公開中です。大阪府全1800エリアのデータは順次追加されます。");
+            alert("現在はサンプル(5580003)のみ先行公開中です。");
         }
     }
 </script>
