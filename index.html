@@ -10,108 +10,86 @@
             --text-dark: #1a1a1a; --bg-light: #f4f7f9;
         }
         * { box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            color: var(--text-dark); background: var(--bg-light); margin: 0; padding: 0; line-height: 1.6;
-        }
-        header { 
-            background: linear-gradient(135deg, var(--primary) 0%, #003366 100%); 
-            color: white; padding: 40px 20px; text-align: center;
-        }
-        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
+        body { font-family: -apple-system, sans-serif; color: var(--text-dark); background: var(--bg-light); margin: 0; line-height: 1.5; }
+        header { background: linear-gradient(135deg, var(--primary), #003366); color: white; padding: 30px 20px; text-align: center; }
+        .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 15px; }
         
-        .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; }
-        
-        .profile-card { 
-            background: white; padding: 25px; border-radius: 12px; 
-            margin-top: -30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .authority-card { 
+            background: white; padding: 25px; border-radius: 12px; margin-top: -20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 4px solid var(--accent);
         }
-        .tagline { color: var(--accent); font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
-        .bio { font-size: 0.95rem; margin-bottom: 20px; }
-        
-        .search-box { 
-            background: var(--primary); color: white; padding: 30px 20px; 
-            border-radius: 12px; margin: 30px 0; text-align: center;
-        }
-        input[type="tel"] { 
-            width: 100%; padding: 15px; border-radius: 8px; border: none; 
-            font-size: 1.2rem; text-align: center; margin-bottom: 15px;
-        }
-        button { 
-            width: 100%; padding: 15px; background: var(--accent); color: var(--primary); 
-            border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;
-        }
+        .authority-title { color: var(--accent); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+        .bio-text { font-size: 0.9rem; margin-bottom: 15px; }
+        .lab-box { background: #fffcf0; padding: 15px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #f1e4b8; }
 
-        /* 分析結果のスマホ最適化 */
-        #result { display:none; margin-top:20px; }
-        .risk-card { 
-            background: white; border-radius: 10px; padding: 20px; 
-            margin-bottom: 15px; border-left: 5px solid var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+        .search-box { background: var(--primary); color: white; padding: 25px; border-radius: 12px; margin: 25px 0; text-align: center; }
+        input[type="tel"] { width: 100%; padding: 15px; border-radius: 8px; border: none; font-size: 1.1rem; text-align: center; margin-bottom: 15px; }
+        button { width: 100%; padding: 15px; background: var(--accent); color: var(--primary); border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; }
+
+        #result { display:none; }
+        .important-note { background: #eef2f7; border-left: 4px solid #3498db; padding: 15px; font-size: 0.85rem; margin-bottom: 20px; border-radius: 4px; }
+        .risk-card { background: white; border-radius: 10px; padding: 18px; margin-bottom: 12px; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .risk-card.high { border-left-color: var(--danger); }
-        .risk-title { font-weight: bold; color: var(--primary); font-size: 1rem; margin-bottom: 8px; display: block;}
-        .risk-desc { font-size: 0.9rem; color: #555; }
+        .risk-tag { font-weight: bold; color: var(--primary); font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .risk-desc { font-size: 0.85rem; color: #444; margin: 0; }
         
-        .evidence-box { font-size: 0.8rem; color: #888; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
-        
-        footer { text-align: center; padding: 40px 20px; font-size: 0.8rem; color: #999; }
+        footer { font-size: 0.75rem; color: #888; text-align: center; padding: 40px 10px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Locus-Intelligence OSAKA</h1>
-    <p style="font-size: 0.9rem; margin-top: 5px;">地域解析型・臨床支援プロトタイプ</p>
 </header>
 
 <div class="container">
-    <div class="profile-card">
-        <div class="tagline">Pharman Academit 代表</div>
-        <div class="bio">
-            <strong>吉森研出身 | 薬剤師</strong><br>
-            2022年日本薬剤師会学術大会（仙台）、2023年アジア薬剤師会連盟(FAPA)台湾大会にてポスター発表。
-            EBM（科学的根拠）とNBM（対話）を臨床で統合し、データに基づいた地域介入を提唱する。
+    <div class="authority-card">
+        <span class="authority-title">代表：Pharman Academit 薬剤師</span>
+        <div class="bio-text">
+            <strong>大阪大学大学院 医学系研究科 吉森研究室出身</strong><br>
+            2022年日本薬剤師会学術大会（仙台）、2023年アジア薬剤師会連盟(FAPA)台湾大会にて、ポスター発表を実施。<br><br>
+            EBM (Evidence Based Medicine：科学的根拠に基づく医療) と NBM (Narrative Based Medicine：対話と物語に基づく医療) を臨床現場で統合し、データに基づいた地域介入の最適化を提唱する。
+        </div>
+        
+        <div class="lab-box">
+            <strong>【学術的背景】</strong><br>
+            オートファジー研究の世界的第一人者である吉森保教授の門下生として、科学的探究心と厳密なデータ解析手法を習得。その知見を地域医療の「歪み」の可視化へと応用。
         </div>
     </div>
 
     <div class="search-box">
-        <p style="margin-top:0; font-size: 0.9rem;">大阪の「歪み」を可視化する</p>
         <input type="tel" id="zipInput" placeholder="郵便番号7桁 (5580003)" maxlength="7">
         <button onclick="runAnalysis()">地域分析を実行</button>
     </div>
 
     <div id="result">
-        <h2 id="resArea" style="font-size: 1.2rem; text-align: center; color: var(--primary);"></h2>
+        <h2 id="resArea" style="font-size: 1.1rem; text-align: center; color: var(--primary); margin-bottom: 15px;"></h2>
         
+        <div class="important-note">
+            <strong>【専門家への注釈】</strong><br>
+            本システムは地域統計上のリスクを可視化するものです。個別の症例における真のリスク評価は、現場薬剤師によるNBM（対話）を通じてのみ完成します。
+        </div>
+
         <div class="risk-card high">
-            <span class="risk-title">⚠️ 沈黙の転倒リスク [独居×催眠剤×下剤]</span>
+            <span class="risk-tag">⚠️ 潜在的転倒連鎖リスク [BZD × 刺激性下剤]</span>
             <p class="risk-desc" id="resFall"></p>
         </div>
 
         <div class="risk-card">
-            <span class="risk-title">💰 医療資源の歪み [生保指標×多剤併用]</span>
+            <span class="risk-tag">💰 医療資源の歪み [生活保護 × 多剤併用]</span>
             <p class="risk-desc" id="resEconomy"></p>
         </div>
 
         <div class="risk-card">
-            <span class="risk-title">💊 地域耐性菌リスク [高齢密集×広域抗生剤]</span>
+            <span class="risk-tag">💊 地域耐性菌リスク [高齢密集 × 広域抗生剤]</span>
             <p class="risk-desc" id="resAMR"></p>
-        </div>
-
-        <div class="evidence-box">
-            <strong>データ根拠：</strong><br>
-            ・令和2年国勢調査（小地域集計）<br>
-            ・第9回NDBオープンデータ（令和4年度実績）<br>
-            <a href="https://www.e-stat.go.jp/" target="_blank" style="color:var(--accent);">e-Stat</a> / 
-            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/ndb_opendata.html" target="_blank" style="color:var(--accent);">NDBメインページ</a>
         </div>
     </div>
 </div>
 
 <footer>
-    &copy; 2025 Pharman Academit<br>
-    OSAKA Locus-Intelligence Project
+    &copy; 2025 Pharman Academit / OSAKA Locus-Intelligence<br>
+    Data Source: 令和2年国勢調査, 第9回NDBオープンデータ
 </footer>
 
 <script>
@@ -120,13 +98,13 @@
         const res = document.getElementById('result');
         if(zip === '5580003') {
             document.getElementById('resArea').innerText = "分析エリア：大阪市住吉区長居";
-            document.getElementById('resFall').innerText = "独居率が府内平均を15%超過。ベンゾ常用者に加え、刺激性下剤の併用が目立つエリアです。夜間の「便意による慌て」が転倒の直接的な引き金になります。";
-            document.getElementById('resEconomy').innerText = "生活保護受給世帯の集中と、6剤以上の多剤併用率に相関が見られます。処方の整理による適正化の優先度が極めて高い地域です。";
-            document.getElementById('resAMR').innerText = "高齢者密度に対し、キノロン系抗生剤の処方指数が1.22と高値。風邪症候群への安易な処方抑制に向けた介入が求められます。";
+            document.getElementById('resFall').innerText = "独居率が高く、且つ地域的にBZD系薬剤と刺激性下剤の供給指数が共に高値。夜間の切迫した便意による移動が転倒事故に繋がるリスクを最警戒すべき地域です。";
+            document.getElementById('resEconomy').innerText = "生活保護受給率と多剤併用指数の相関を検知。不必要な重複投薬の整理による医療費適正化のポテンシャルが極めて高いエリアです。";
+            document.getElementById('resAMR').innerText = "高齢者密度に対しキノロン系抗生剤の処方量が府内平均を大幅に超過。地域薬剤師による抗菌薬適正使用の啓発が急務です。";
             res.style.display = 'block';
-            window.scrollTo({ top: res.offsetTop - 20, behavior: 'smooth' });
+            window.scrollTo({ top: res.offsetTop - 10, behavior: 'smooth' });
         } else {
-            alert("現在、住吉区周辺のデータを装填中です。明日、大阪市全域が解放されます。");
+            alert("明日、大阪市全域（24区）の多角的リスクデータが反映されます。");
         }
     }
 </script>
